@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Cls_AddTeamMemberExtensions_Condition_Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AddTeamMemberExtensions Condition Information</shortDescription>
+        <value>Please select valid conditions. Now you see all relevant Users</value>
+    </labels>
+    <labels>
+        <fullName>Cls_AddTeamMemberExtensions_InitialCondition_Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AddTeamMemberExtensions Initial Condition Information</shortDescription>
+        <value>Please select valid conditions. Now you see all relevant Users based on the correct initial condition</value>
+    </labels>
+    <labels>
+        <fullName>Cls_AddTeamMemberExtensions_User_Warning</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AddTeamMemberExtensions User Warning</shortDescription>
+        <value>Please select atleast one user</value>
+    </labels>
+    <labels>
+        <fullName>Cls_NewCondtionExt_Condition_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NewCondtionExt Error Message for condition</shortDescription>
+        <value>Please select valid Conditions.</value>
+    </labels>
+    <labels>
+        <fullName>Id_Validation_Message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Id Validation Message</shortDescription>
+        <value>ID id not valid!.</value>
+    </labels>
+    <labels>
+        <fullName>Tgr_AdminConsoleValidations_ObjectAPI_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AdminConsoleValidations Object API field Validation message</shortDescription>
+        <value>Please insert a Valid Object API name! Admin Console Object is not allowed.</value>
+    </labels>
+    <labels>
+        <fullName>Trg_AdminConsoleValidation_DisplayField_Condition_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AdminConsoleValidations Display Field  Condition Validation message</shortDescription>
+        <value>Note: Please insert Only API names for the fields. Seperate each field API name with a comma(,). No white spaces allowed between the field API names.Only 3 Fields can be insert</value>
+    </labels>
+    <labels>
+        <fullName>Trg_AdminConsoleValidation_DisplayField_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AdminConsoleValidations for Display Field Validation message</shortDescription>
+        <value>Please insert a Valid API Name for Fields to display</value>
+    </labels>
+    <labels>
+        <fullName>Trg_AdminConsoleValidation_DisplayMaxField_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AdminConsoleValidations Maximum Display Field Validation message</shortDescription>
+        <value>Only 3 Fileds can be inserted in to Fields To display</value>
+    </labels>
+    <labels>
+        <fullName>Trg_AdminConsoleValidation_KeyField_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AdminConsoleValidationsKey Field Validation message</shortDescription>
+        <value>Please insert a Valid API Name for Key Field !</value>
+    </labels>
+    <labels>
+        <fullName>Trg_AdminConsoleValidation_KeyField_NumberOnly_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AdminConsoleValidations Key Field and number is entered</shortDescription>
+        <value>Please insert a Valid API Name for Key Field ! Only Number fields can be set as Key Field.</value>
+    </labels>
+    <labels>
+        <fullName>Trg_AdminConsoleValidation_Profile_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AdminConsoleValidations Profile Validation message</shortDescription>
+        <value>Please insert a Valid Profile Name!</value>
+    </labels>
+</CustomLabels>

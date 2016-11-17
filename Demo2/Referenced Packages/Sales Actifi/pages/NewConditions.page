@@ -1,0 +1,61 @@
+<!--
+     @VisualForce Page NewConditions
+     @Author Suyati Inc  on 7/15/2016
+     @Description VisualForce Page to add conditions for LeaderBoard in Admin Console. 
+-->
+<apex:page standardController="Score_Card__Condition__c" extensions="Score_Card.NewCondtionsExtension"  recordSetVar="Conditions" tabStyle="Score_Card__Admin_Console__c">
+    <apex:form >
+        <apex:variable var="rowNum" value="{!0}"/>
+        <apex:pageBlock title="Add New Conditions" id="CondAdd" > 
+            <apex:pageBlock >           
+                <apex:pageMessages />
+                
+                <!-- pageBlockButtons includes Save button which add the conditions and Cancel button which returns to AdminConsole Page of Leader Board-->
+                <apex:pageBlockButtons location="bottom" >
+                    <apex:commandButton action="{!SaveConditions}" value="Save"/>
+                    <apex:commandButton action="{!Cancel}" value="Cancel" >   </apex:commandButton>   
+                </apex:pageBlockButtons>
+                <apex:pageblockSection title="Conditions" >
+                
+                <!--pageBlockTable includes different fields that are required to include different conditions for Leader Board -->
+                    <apex:pageBlockTable value="{!SearchListObj}" var="ConditionMembers">
+                        <apex:column headerValue="Field">
+                            <apex:selectList value="{!ConditionMembers.Field}" multiselect="false" size="1">  
+                             <apex:actionSupport event="onchange" action="{! SetValueField }" rerender="CondAdd" status="counterStatus" >                                 
+                             </apex:actionSupport>                       
+                                <apex:selectOptions value="{!Fields}"/>                                  
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Operator">
+                            <apex:selectList value="{!ConditionMembers.Operator}" multiselect="false" size="1">                              
+                                <apex:selectOptions value="{! ConditionMembers.CValueField.ValueOperators}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Value">
+                            <apex:inputText value="{!ConditionMembers.Value}" rendered="{! ConditionMembers.CValueField.RenderText}"/>                                                
+                            <apex:selectList rendered="{! ConditionMembers.CValueField.RenderPickList }" value="{! ConditionMembers.Value }" multiselect="false" size="1">                    
+                                <apex:selectOptions value="{!ConditionMembers.CValueField.lstValuesOptions}"/>                                  
+                            </apex:selectList>                           
+                            <apex:inputCheckbox value="{!ConditionMembers.Value}" rendered="{! !ConditionMembers.CValueField.RenderText && !ConditionMembers.CValueField.RenderPickList && !ConditionMembers.CValueField.renderDate  }" />                                                                                                                                                                      
+                            <apex:inputField rendered="{!ConditionMembers.CValueField.renderDate }" value="{! ConditionMembers.DateField.DateValue__c }"/>                            
+                        </apex:column>
+                        <apex:column headerValue="Conditional Operator" rendered="{!ConditionMembers.Flg}">
+                            <apex:selectList value="{!ConditionMembers.COperator}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!COperators}"/>
+                            </apex:selectList>
+                        </apex:column>                                            
+                    </apex:pageBlockTable> 
+                </apex:pageblockSection> 
+                
+                <!-- outputlabel includes links to add new row and to delete a row from conditions-->
+                <apex:outputlabel id="links" >
+                     <apex:commandLink value="Add Row" action="{!addRow}" reRender="CondAdd"/>
+                     <apex:outputText rendered="{! EnableDelete }" > | </apex:outputText> 
+                     <apex:commandLink value=" Delete Row" rendered="{! EnableDelete }" action="{!DeleteRow}" reRender="CondAdd,links"/> 
+                <br/>
+                </apex:outputlabel>
+            </apex:pageBlock>
+           
+        </apex:pageBlock>
+    </apex:form>   
+</apex:page>

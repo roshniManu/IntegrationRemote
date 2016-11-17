@@ -1,0 +1,35 @@
+<apex:page controller="ResumeClass" showHeader="false" sidebar="false">
+    <style>
+        .output{
+ background-color:#b3b3cc;
+        
+        }
+        .outputs{
+ background-color:#b3b3cc;
+        
+        }
+    </style>
+    
+    <div Class="outputs"> <h3>Career Objective </h3></div>
+
+  <apex:dataTable value="{!resumes}" var="res" id="theTable" > 
+      
+      <apex:facet name="caption">table caption</apex:facet>
+       <apex:column >
+
+       <apex:facet name="header">Name</apex:facet> </apex:column>
+         <apex:column > <apex:outputText value="{!resumes.Name}"/> </apex:column>
+
+
+       
+    </apex:dataTable>  
+    percent
+    <apex:outputText value="{!resumes.Hobbies__c}"/>
+    
+     <apex:repeat value="{!resumes.Qualifications__r}" var="qual">
+        <apex:outputText value="{!qual.Percentage__c}"/>
+         
+        <apex:outputText styleClass="output" value="{!qual.Qualification__c}"/>
+     </apex:repeat>
+  
+</apex:page>

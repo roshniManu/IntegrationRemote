@@ -1,0 +1,102 @@
+<apex:page >
+    <head>
+    
+    <link rel="shortcut icon" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/png/512/android-folder.png" />
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.jstree.com/feed" />
+    <link rel="stylesheet" type="text/css" href="http://static.jstree.com/layout.css" />
+    <script type="text/javascript" src="http://static.jstree.com/v.1.0pre/jquery.js"></script>
+    <link rel="canonical" href="http://www.jstree.com/documentation/dnd" />    <link type="text/css" rel="stylesheet" href="http://static.jstree.com/v.1.0pre/_docs/syntax/!style.css"/>
+<script type="text/javascript" src="http://static.jstree.com/v.1.0pre/_docs/syntax/!script.js"></script>
+<link rel="stylesheet" type="text/css" href="http://static.jstree.com/v.1.0pre/_docs/!style.css" />
+<script type="text/javascript" src="http://static.jstree.com/v.1.0pre/jquery.cookie.js"></script>
+<script type="text/javascript" src="http://static.jstree.com/v.1.0pre/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="http://static.jstree.com/v.1.0pre/jquery.jstree.js"></script>
+<script type="text/javascript">SyntaxHighlighter.config.clipboardSwf = 'http://static.jstree.com/v.1.0pre/_docs/syntax/clipboard.swf';</script>
+
+    </head>
+
+<h3>Using the dnd plugin</h3>
+
+<div id="demo1" class="demo">
+    <ul>
+        <li id="phtml_1" class="jstree-drop" movable="true">
+            <a href="#">Root node 1</a>
+            <ul>
+                <li id="phtml_2" class="jstree-drop">
+                    <a href="#">Child node 1</a>
+                </li>
+                <li id="phtml_3" class="jstree-drop">
+                    <a href="#">Child node 2</a>
+                </li>
+            </ul>
+        </li>
+        <li id="phtml_4" class="jstree-drop" movable="true">
+            <a href="#">Root node 2</a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" >
+$(function () {
+    $("#demo1").jstree({ 
+    "crrm" : { 
+            "move" : {
+                "check_move" : function (m) { 
+                console.log(m);
+                if(m.p=="before"|| m.p=="after")
+                    return false;
+                if(m.o.attr('movable'))
+                    return true;
+                else
+                    return false;
+                    
+            
+                }
+            }
+        },
+    
+        "dnd" : {
+            
+            /*
+            "drop_finish" : function (data) { 
+            alert('drop finish');
+            console.log(data);
+                //this is where the actual call to the sever is made for rearranging the triples for drag n drop.
+                //console.log(data);
+                //console.log('target '+ data.r);
+                
+            },
+            
+            "drag_check" : function (data) {
+                if(data.r.attr("id") == "phtml_1") {
+                    return false;
+                }
+                return { 
+                    after : false, 
+                    before : false, 
+                    inside : false 
+                };
+            }
+            
+            
+            "drag_finish" : function (data) { 
+                alert("DRAG OK"); 
+            }
+            
+            */
+            
+            
+        },
+        "plugins" : [ "themes", "html_data", "dnd", "crrm" ]
+    });
+});
+$('#demo1').bind('move_node.jstree',function(event,data){console.log(event);console.log(data); 
+
+    //console.log('the item being dragged '+data.rslt.o[0].id+ 'target '+data.rslt.np[0].id);
+    //lets assume we want to roll back
+    /*
+    jQuery.jstree.rollback(data.rlbk);
+    alert('this move is not allowed');
+    */    
+});
+    </script>
+</apex:page>

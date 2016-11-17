@@ -1,0 +1,20 @@
+<aura:component controller="Score_Card.BroadCastController" access="global">
+    <ltng:require scripts="/resource/Score_Card__scorCardResource/jquery.min.js" afterScriptsLoaded="{!c.bmJsLoaded}"/>
+    <!--/resource/Score_Card__scorCardResource/jquery.min.js--> 
+    <aura:attribute name="Msgs" type="Score_Card__Admin_Console__c[]"  ></aura:attribute> 
+    <div>  
+    <footer class="ftr_01">
+          <div class="marquee-sibling">
+           EVENTS
+          </div>
+          <div class="content">
+       <div class="marq_container">
+        <div class="marquee">
+         <ul class="marquee-content-items" align="right">
+         </ul>
+        </div>
+       </div>
+       </div>
+     </footer>
+     </div>
+</aura:component>

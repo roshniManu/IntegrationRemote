@@ -1,0 +1,53 @@
+<aura:component controller="VegetableController">
+    
+    
+    <aura:attribute name="Get_Result" type="Integer" />
+    <aura:attribute name="customerInfo" type="CustomerDetail__c" default="{ sobjectType: 'CustomerDetail__c' }" />
+    
+    
+    <div class="falock">Total <br></br><span>₹ {!v.Get_Result}.00</span></div>
+	 <div id="container">
+   
+    <form>
+    <p>
+      <label>First Name</label>
+      <ui:inputText aura:id="fname" placeholder="Super Awesome Customer" value="{!v.customerInfo.Name}"/>
+    </p>
+        
+      <p>
+      <label>Last Name</label>
+      <ui:inputText aura:id="lname" placeholder="Super Awesome Customer" value="{!v.customerInfo.Last_Name__c}" />
+    </p>
+        
+    <p>
+      <label>Email</label>
+      <ui:inputEmail aura:id="mail" placeholder="yourname@maildomain.com" value="{!v.customerInfo.Email__c}" />
+    </p>
+   
+        
+      <p>
+      <label>Phone</label>
+      <ui:inputPhone aura:id="ph" placeholder="+00 0000 000 000" value="{!v.customerInfo.Phone__c}" />
+    </p>
+        
+      <p>
+      <label>Address</label>
+      <ui:inputText aura:id="address" placeholder="House Name Street Name" value="{!v.customerInfo.Address__c}" />
+    </p>
+        
+      <p>
+      <label>City</label>
+      <ui:inputText aura:id="city" placeholder="City" value="{!v.customerInfo.City__c }" />
+    </p>
+        
+      <p>
+      <label>Billing Zip Code</label>
+      <ui:inputPhone aura:id="zip" placeholder="000000" value="{!v.customerInfo.Billing_Zip_Code__c}" />
+    </p>
+      <ui:button class="l" label="Submit" press="{!c.saveDetails}"/>
+   </form>
+ </div>    
+<div id="thankYou">
+        <h1>&#10004;<br></br>Thank You!</h1>
+    </div>    
+</aura:component>

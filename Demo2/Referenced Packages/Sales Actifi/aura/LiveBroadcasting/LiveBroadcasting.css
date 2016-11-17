@@ -1,0 +1,96 @@
+.THIS {
+}
+
+.THIS .marq_container {
+    width: 100%;
+    background: grey;
+    float: left;
+    display: inline-block;
+    overflow: hidden;
+    box-sizing: border-box;
+    height: 45px;
+    position: relative;
+    cursor: pointer;
+    color: #585858;
+}
+
+.THIS .marquee-sibling {
+    padding: 0;
+    background: rgb(61, 61, 61);
+    width: 20%;
+    height: 45px;
+    line-height: 42px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #ffffff;
+    text-align: center;
+    float: left;
+    left: 0;
+    z-index: 2000;
+}
+
+.THIS .marquee{
+    display: inline-block;
+    white-space: nowrap;
+    position:absolute;
+}
+
+.THIS .marquee-content-items{
+  display: inline-block;
+  padding: 5px;
+  margin: 0;
+  height: 45px;
+  position: relative;  
+}
+
+.THIS .marquee-content-items li{
+  display: inline-block;
+  line-height: 35px;
+}
+
+.THIS .marquee-content-items li:after{
+    content: "|";
+    margin: 0 1em;
+}
+.THIS .marquee-content-items li:last-child:after{
+    content: "";
+    margin: 0 1em;
+}
+
+
+
+.THIS .ftr_01{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    border-top:5px solid #000;
+    background-color: #000;
+}
+.THIS .marq_container{
+    background-color: #000;
+}
+.THIS .marquee-sibling{
+    position:absolute;
+    left:0;
+    bottom:0;
+    height:70px;
+    width:auto;
+    border-top:5px solid #bd1818;
+    border-right:5px solid #bd1818;
+    border-radius:0 100px 0 0;
+    padding:0 50px;
+    line-height:70px;
+    font-size:30px;
+    color:#fff;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#750c0c+0,f83e3e+49,750c0c+100 */
+    background: #750c0c; /* Old browsers */
+    background: -moz-linear-gradient(top,  #750c0c 0%, #f83e3e 49%, #750c0c 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #750c0c 0%,#f83e3e 49%,#750c0c 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #750c0c 0%,#f83e3e 49%,#750c0c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#750c0c', endColorstr='#750c0c',GradientType=0 ); /* IE6-9 */
+
+}
+.THIS .marquee-content-items li{
+    font-size:19px;
+}

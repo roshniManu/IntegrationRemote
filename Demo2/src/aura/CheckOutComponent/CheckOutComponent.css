@@ -1,0 +1,126 @@
+.THIS body {
+  background: #fff;
+  font-family: 'Roboto';
+}
+.THIS#container {
+  margin: 11em auto 1em;
+  position: relative;
+  box-sizing: border-box;
+}
+.THIS p {
+  margin: 0 0 3em;
+}
+.THIS.falock {
+  position: absolute;
+  color: white;
+  right: 0em;
+  left:0em;
+  top: 0em;
+  background: #66AD5A;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 2em 1em;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  box-sizing: border-box;
+  text-align: center;
+  display: block;
+}
+
+.THIS span {
+  color: white;
+  margin: 0 0 0;
+  display: block;
+  font-size: 4em;
+  letter-spacing: 0.0em;
+  text-transform: uppercase;
+  font-family: 'Roboto Mono';
+}
+.THIS form {
+  padding-top: 1em;
+  margin: 0;
+  width: 18em;
+  margin: auto;
+  text-align: center;
+}
+.THIS label {
+  color: rgba(12, 12, 12, 0.93);
+  margin-bottom: 0;
+  padding: 0.1em 0.5em;
+  width: 100%;
+  font-size: 1.5em;
+  background: rgba(132, 132, 129, 0.3);
+}
+.THIS input {
+  display: block;
+  border: none;
+  border-bottom: 2px dotted rgba(0,0,0,0.2);
+  padding: 1.2em 0.2em 0.4em;
+  text-align: center;
+  font-size: 1.2em;
+  width: 100%;
+  color: #66AD5A;
+  letter-spacing: 0.01em;
+  box-sizing: border-box;
+  background: transparent;
+  font-family: 'Roboto Mono';
+}
+.THIS input:focus {
+  outline: none;
+  border-bottom: 2px solid #66AD5A;
+  background: transparent;
+}
+
+.THIS ::-webkit-input-placeholder {
+  color: rgba(0,0,0,0.16);
+}
+.THIS :-moz-placeholder {
+/* Firefox 18- */
+  color: rgba(0,0,0,0.2);
+  font-style: italic;
+}
+.THIS ::-moz-placeholder {
+/* Firefox 19+ */
+  color: rgba(0,0,0,0.2);
+  font-style: italic;
+}
+.THIS :-ms-input-placeholder {
+  color: rgba(0,0,0,0.2);
+  font-style: italic;
+}
+.THIS .l{ 
+  background: white;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: none;
+  padding: 1.5em 0.8em;
+  color: #66AD5A;
+  margin-top: 2em;
+  margin-bottom: 0; 
+  border-radius: 3px;
+  font-weight: bold;
+  font-family: 'Roboto';
+}
+.THIS .l:hover {
+  background: #66AD5A;
+  border-color: #66AD5A;
+  color: white;
+}
+.THIS .l span{
+    font-size:2em;
+    width:250px;
+}
+
+.THIS#thankYou{
+    display:none;
+    font-size: 600%;
+    color: #259C37;   
+}
+.THIS#thankYou h1{
+    text-align:-webkit-center;
+    font-family:cursive;
+    text-transform: uppercase;
+    font-size:100%;
+    margin-top: 250px;
+}
