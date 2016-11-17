@@ -1,0 +1,71 @@
+<!--
+    * @Visual Force Page Score Card
+    * @author Suyati Tech on 7/4/2016
+    * @descriptionTo This page will automatically load the score  card lightning app     
+-->
+<apex:page tabStyle="Score_Card__tab" controller="Score_Card.ScoreCardVFController"  showHeader="false" sidebar="false" >    
+    <apex:includeLightning />
+    <apex:includeScript value="/lightning/lightning.out.js" />
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <div id="lightning" />
+    <div id="BroadCasting"  />
+    Please wait Score card is taking more time than usual!.
+    <!-- <input type="hidden" value="{!$Label.LeaderoardVideoUrl }" id ="globalvideoURL" /> -->
+    <br/>         
+    <script>
+        var timeOutSettings;        
+        RefreshDom();         
+        function RefreshDom(){             
+            $('#lightning').empty();
+            $('#BroadCasting').empty();
+            clearTimeout(timeOutSettings);
+            //Tell your Visualforce page to use NewMenuApp Lightning app            
+            $Lightning.use("Score_Card:ScoreCard", function() {
+            // creates the component on the page
+                $Lightning.createComponent("Score_Card:LiveLeadersBoardTemplate",
+                    {},
+                    "lightning",
+                    function(cmp) {
+                        //cmp.set('v.GlobalvideoUrl', document.getElementById('globalvideoURL').value);                                                                          
+                });        
+                $Lightning.createComponent("Score_Card:LiveBroadcasting",
+                    {},
+                    "BroadCasting",
+                    function(cmp1) {
+                                  
+                });
+            });
+            getintervalTime();                   
+        }          
+       
+        function getintervalTime(){
+            var resultTime;
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ScoreCardVFController.getAdminConsoleData}',                 
+                function(result, event){                    
+                    if (event.status) {  
+                       if( result == 0 ){
+                           //alert("No relevent data Found");
+                           setTimeout(function(){                
+                              //RefreshDom();                                  
+                           }, 300000);                                                                      
+                       }
+                       else{                                                              
+                           var timeOutInterval = result+1000 ; 
+                           //console.log(timeOutInterval);                                                             
+                           timeOutSettings =  setTimeout(function(){                
+                              RefreshDom();                                  
+                           }, timeOutInterval );
+                       }                                                                                                                        
+                    } else if (event.type === 'exception') {
+                        console.log('exception');
+                    } else {
+                          console.log('general exception');
+                    }
+                }, 
+                {escape: true}
+            );
+            return;
+        }        
+    </script>
+    </apex:page>

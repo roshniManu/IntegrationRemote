@@ -1,0 +1,165 @@
+<aura:component controller="VegetableController" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
+  
+    <aura:registerEvent name="loadMyEvent" type="c:passTotal"/>
+    
+    <aura:attribute name="totalPrice" type="integer"/>
+	
+    <style>
+    	body{
+        	overflow-x:hidden;
+        }
+    </style>
+    <aura:handler name="init" value="{!this}" action="{!c.VegList}"></aura:handler>
+	<aura:attribute name="veg" type="vegetable__c[]"></aura:attribute>
+    <aura:attribute name="FruitsOnly" type="vegetable__c[]"></aura:attribute>
+	<aura:attribute name="vegOnly" type="vegetable__c[]"></aura:attribute>
+    <aura:attribute name="cart" type="vegetable__c[]"></aura:attribute>
+    <aura:attribute name="total" default="0" type="Double"></aura:attribute>
+    <aura:attribute name="quantity" default="1" type="Integer"></aura:attribute>
+    <aura:attribute name="flag" default="0" type="Integer"></aura:attribute>
+    <aura:attribute name="flag2" default="0" type="Integer"></aura:attribute>
+    <aura:attribute name="count" default="0" type="Integer"></aura:attribute>
+    <aura:attribute name="searchItems" type="vegetable__c[]"></aura:attribute>
+   	<aura:attribute name="onclick" type="Aura.Action" default="{!c.displayCart}"/>
+   	<aura:attribute name="data" type="String" description="Any data to be passed via html5 data- attribute"/>   	
+    <aura:attribute name="temp" type="Integer[]" ></aura:attribute>
+    <aura:attribute name="cat" type="String" default='home'></aura:attribute>
+    
+    <!--Menu Bar-->
+    <div class="home">
+       <!-- <img src="https://images.alphacoders.com/487/487706.jpg"></img>-->
+    </div>    
+    <div class="menufont">
+    <div class="menu-wrap">
+    <nav class="menu">
+        <ul>
+            <li><div class="heading"><p class="headalign">MY CART</p></div></li>
+            <li><a onclick='{!c.displayHome}'>Home</a></li>
+            <li>
+                <a href="#">Categories <span class="arrow">&#9660;</span></a>
+                <ul class="sub-menu">
+                    <li><a onclick='{!c.displayFruits}'>Fruits</a></li>
+                    <li><a onclick='{!c.displayVegetable}'>Vegetables</a></li>
+                </ul>
+            </li>
+			
+            <li><a onclick='{!c.displayCart}'>Cart</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+	</div>
+    </div>
+    <!--End-menu bar-->
+    <div class="colorVeg">
+    <div id="cont" class="container">        
+        <div class="searchBar">
+            <form id="autoCompleteForm" >       
+                <div id="searchBlock" >
+                    <div id="searchSection" title="Search for an Item..." columns="1" >
+                    <input type="Text" placeHolder="Search..." onkeyup="{!c.search}"   id="searchInput" />
+                    <button id="cl" class="close-icon" onclick="{!c.clear}"></button> 
+                        
+                </div> 
+                </div> 
+                
+            </form>      
+        </div>
+        <button onclick="{!c.clear}">CLEAR</button>
+        
+        <!-- items -->
+	<div id="disVeg">
+       <aura:iteration items="{!v.veg}" var="vegObj">
+            <div class="tile">
+                <img src="{!vegObj.Icon__c}"></img><br></br>
+                {!vegObj.Name}<br></br>
+                ₹ {!vegObj.Price__c}<br></br>
+                {!vegObj.Weight__c} Grams <br></br>
+                <button class="button button5" id="{!vegObj.Name}" onclick="{!c.addToCartNewItem}">Add to Cart</button>
+            </div>
+    	</aura:iteration>
+    </div>       
+    </div>   
+         </div> 
+    
+    <!-- The Modal -->   
+  	<div id="myModal" class="modal" >
+  	<!-- Modal content -->
+  		<div class="modal-content">
+    <div class="modal-header">
+        <h2>My Cart</h2>
+    	<span class="close clbtn" onclick="{!c.close}">x</span>     	
+    </div>
+    	<div class="modal-body">
+     		<div>
+    		<aura:iteration items="{!v.cart}" var="cartObj">
+        	<ul class="w3-ul">
+    		<li>
+                <div class="listItem">
+                	
+                    <img id="" style="  float:left;  width: 100px;  height: 100px;" src="{!cartObj.Icon__c}"></img>
+                	
+        			<div class="thisItem"><p>
+                		{!cartObj.Name}<br></br>
+                		₹ {!cartObj.Price__c}<br></br>
+                        Total Weight:{!cartObj.Weight__c} Grams</p>
+            		</div>
+                    <div class="quantity">{!cartObj.Quantity__c} Item(s)<br></br>
+                    </div>
+                	<div class="closeBtn">
+					<span id="{!cartObj.Name}" class="close clbtnin remove cartremove" onclick="{!c.removeItem}">x</span>
+                	</div>
+                </div>
+            </li>           
+        	</ul>
+   	 		</aura:iteration>
+    		</div>
+    	</div>
+    <div class="modal-footer">
+        <h3>Total Amount: ₹ {!v.total}/-</h3>
+               <button class="button button6"  onclick="{!c.close}">Buy More</button>
+        <ui:button class="button button6 spl" label="Proceed to CheckOut" press="{!c.pass}"/>
+    </div>
+  	</div>
+  	</div>
+    
+    
+    <div id="cartForm">
+        <aura:iteration items="{!v.cart}" var="cartObj">
+        <ul class="w3-ul">
+    		<li><li>
+                <div class="listItem borderclass">
+                
+                    <img id="imgIcon" src="{!cartObj.Icon__c}"></img>
+               
+        			<div class="thisItem"><p>
+                		{!cartObj.Name}<br></br>
+                		₹ {!cartObj.Price__c}<br></br>
+                        Total Weight:{!cartObj.Weight__c} Grams</p>
+            		</div>
+                    <div class="quantity">{!cartObj.Quantity__c} Item(s)
+                    </div>
+                	<div class="closeBtn">
+					<span id="{!cartObj.Name}" class="close clbtnin remove " onclick="{!c.removeItem}">x</span>
+                	</div>
+                </div>
+            </li>                   	
+            </li>           
+        </ul>
+    </aura:iteration>
+        <ui:button class="button button6 spl" label="Proceed to CheckOut" press="{!c.pass}"/>  
+    </div>
+
+    
+    <div id="noItem">
+        No Item(s) Found...!!
+    </div>
+    
+  	<div id="footer" class="footer">
+        &copy; Copyright  Suyati Technologies Pvt. Ltd.<br></br>2016
+   	</div>  
+    <div id="priceTag">
+   		₹ {!v.total}
+    </div>
+    
+</aura:component>

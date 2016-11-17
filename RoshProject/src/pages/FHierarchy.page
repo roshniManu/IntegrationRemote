@@ -1,0 +1,69 @@
+<apex:page standardController="Opportunity" >
+    <head>
+  <title>jsTree test</title>
+                 
+        
+  <!-- 2 load the theme CSS file -->
+<apex:includeScript value="{!URLFOR($Resource.jst,'dist/themes/default/style.min.css')}"/>
+ <!-- 4 include the jQuery library -->
+<apex:includeScript value="https://code.jquery.com/jquery-2.2.4.js"/>
+  <!-- 5 include the minified jstree source -->
+<apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.1/themes/default/32px.png"/>
+<apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.1/jstree.min.js"/>
+<apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.3.1/themes/default/style.min.css"/>
+<apex:includeScript value="{!URLFOR($Resource.jst,'dist/jstree.min.js')}"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+
+  <script>
+  $(function () {
+    // 6 create an instance when the DOM is ready
+    $('#jstree').jstree();
+    // 7 bind to events triggered on the tree
+    $('#jstree').on("changed.jstree", function (e, data) {
+      console.log(data.selected);
+    });
+    // 8 interact with the tree - either way is OK
+    $('button').on('click', function () {
+      $('#jstree').jstree(true).select_node('child_node_1');
+      $('#jstree').jstree('select_node', 'child_node_1');
+      $.jstree.reference('#jstree').select_node('child_node_1');
+    });
+  });       
+  </script>
+    </head>
+  <!-- 3 setup a container element -->
+  <div id="jstree">
+    <!-- in this example the tree is populated from inline HTML -->
+    <ul>
+      <li>Client Non-Confidential</li>
+      <li>Client Confidential</li>
+      <li>Incyte Non-Confidential</li>
+      <li>Incyte Confidential</li>
+      <li>CDA</li>
+      <li>Term Sheet</li>
+      <li>Collaboration Agreement</li>
+      <li>Opportunity Assessment</li>
+      <li>Protocol</li>
+      <li>Ancillary Documents</li>
+    </ul> <div id="jstree">
+    <!-- in this example the tree is populated from inline HTML -->
+    <ul>
+      <li>Client Non-Confidential</li>
+      <li>Client Confidential</li>
+      <li>Incyte Non-Confidential</li>
+      <li>Incyte Confidential</li>
+      <li>CDA</li>
+      <li>Term Sheet</li>
+      <li>Collaboration Agreement</li>
+      <li>Opportunity Assessment</li>
+      <li>Protocol</li>
+      <li>Ancillary Documents</li>
+    </ul>
+  </div>
+  </div>
+    
+    
+    
+   
+    
+</apex:page>

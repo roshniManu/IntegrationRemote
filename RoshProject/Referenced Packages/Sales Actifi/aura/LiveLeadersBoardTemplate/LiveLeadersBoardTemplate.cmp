@@ -1,0 +1,71 @@
+<aura:component controller="Score_Card.LeaderBoardTemplateController" access="global" implements="force:appHostable" >
+    <ltng:require styles="/resource/Score_Card__scorCardResource/bootstrap/css/bootstrap.css"
+                  scripts="/resource/Score_Card__scorCardResource/jquery.min.js"
+                  afterScriptsLoaded="{!c.jsLoaded}"/>
+    <aura:handler name="init" value="{! this}" action="{! c.initTemplate}" ></aura:handler>
+    <aura:attribute name="Runningtemplates" type="Score_Card__Admin_Console__c[]" ></aura:attribute> 
+    <aura:attribute name="videoUrl" type="URL"></aura:attribute>
+    <aura:attribute name="audioUrl" type="URL"></aura:attribute>   
+    <aura:attribute name="ErrorMsg" type="String"></aura:attribute>   
+    <aura:attribute name="AllLeaderData" type="Score_Card.ScoreCardTemplateWrapper[]"></aura:attribute> 
+    <aura:attribute name="AvailableAdminConsoleData" type="Score_Card__Admin_Console__c[]"></aura:attribute>
+    <aura:attribute name="lstleadres" type="Score_Card.ScoreCardTemplateWrapper[]"></aura:attribute> 
+    <aura:attribute name="GlobalvideoUrl" type="URL"></aura:attribute>
+    <aura:attribute name="generalSettings" type="Score_Card__General_Settings__c" ></aura:attribute>
+    <div class="loader_01">
+        <div id="loader_01"></div>
+    </div>
+    <div class="error_Center">
+            <aura:if isTrue="{! v.ErrorMsg != ''}">
+                {!v.ErrorMsg}       
+            </aura:if>           
+   </div>  
+    
+    <div>
+        <div class="leaders_wrapper videoContainer">
+            <iframe frameborder="0" width="100%" height="100%" src="{! v.videoUrl}" allowfullscreen="TRUE" ></iframe>
+            <video  autoplay="true" loop="true">
+                <source class="mp4" src="" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video> 
+            <audio autoplay="true" loop="true">
+                <source class="mp3" src="{! v.audioUrl}" type="audio/mpeg"/>
+                Your browser does not support the audio tag.
+            </audio>
+        </div>             
+        <div class="leaders_wrapper leaders_data">
+            <div class="content_wrapper">
+                <header class="leaders_title container hide">
+                    <div class="ribbon">
+                        <div class="ribbon-stitches-top"></div>
+                        <strong class="ribbon-content">
+                            <h1 class="mainTitle h1_clr_01"></h1>
+                        </strong>
+                        <div class="ribbon-stitches-bottom">
+                        </div>
+                    </div>
+                    <br/>
+                    <h2 class="subTitle h2_clr_01"></h2>
+                </header>
+                <section class="container">
+                    <aside class="row">
+                        <aside class="col-xs-5">
+                            <div align="right" class="leaders_list" data-visible-count="5">
+                                <ul class="list_01">
+                                </ul>
+                            </div>
+                        </aside>
+                        <aside align="left" class="col-xs-7">
+                            <div class="leaders_details hide">
+                                <ul>	    						
+                                </ul>
+                            </div>
+                        </aside>
+                    </aside>	    		
+                </section>    		
+            </div>
+            <div style="clear:both"></div>            
+        </div>
+        <div style="clear:both"></div>
+    </div>
+</aura:component>
