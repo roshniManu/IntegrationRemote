@@ -3,7 +3,7 @@ public  class PdfExampleController {
     public PdfExampleController (){
     //first
     //second
-    //3r
+    //3r2
         accList = new List<Account>();
         accList = [select id,name,type,accountnumber,annualrevenue,Rating from account limit 10];
     }
