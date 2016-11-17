@@ -1,0 +1,571 @@
+.THIS img{ 
+    width: 150px;
+    height: 150px;
+}
+.THIS colorVeg{
+    background-color:url('https://images4.alphacoders.com/134/13436.jpg');
+}
+.THIS .tile{
+    font-family: cursive;
+    width:240px;
+    height:250px;
+    float:left;
+    text-align: center;
+    border: 1px solid grey;
+    margin: 18px;
+    font-weight: bold;
+    font-size: 0.875em;
+    margin-left: 3.0%;
+}
+.THIS.container{
+    margin-top:1%;    
+    width:100%;
+}
+
+.THIS.menu{
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    text-align: right;
+    font-size: 14px;
+    position: fixed;
+}
+.THIS ul {
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;    
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+.THIS li {
+    float: left;
+}
+.THIS .blk{
+    background-color:#0d0d0d;
+    height:41.62px;
+    width:70%;
+}
+.THIS .header{
+    display: block;
+    color: white;
+    text-align: left;
+    width:70%;
+    height:15px;
+    text-decoration: none;
+    font-weight: bold;
+    list-style-type: none;
+}
+.THIS .headerp{
+    margin-left:15px;
+    margin-top:12px;
+    font-size:20px;
+}
+.THIS li a {
+    display: block;
+    color: #4caf50;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.THIS li a:hover:not(.active) {
+    background-color: #40bf40;
+    color:white;
+}
+
+.THIS li a.active {
+    color: white;
+    background-color: #40bf80;
+}
+.THIS .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 12px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: cursive;
+}
+
+.THIS .button5 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+
+.THIS .button5:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.THIS .button6{
+    background-color: white; 
+    color: #4CAF50; 
+    border: 2px solid #4CAF50;
+}
+
+.THIS .button6:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.THIS .uiButton{
+    padding: 12px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: cursive;
+    background-color: white; 
+    color: #4CAF50; 
+    border: 2px solid #4CAF50;
+}
+.THIS .uiButton:hover{
+    background-color: #4CAF50;
+    color: white;
+}
+/* Popup styles*/
+.THIS.m{
+    display: block !important;; 
+}
+.THIS.hideThis{
+    display: none !important;; 
+}
+/* The Modal (background) */
+.THIS.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    font-family: cursive;
+}
+/* Modal Content */
+.THIS .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.THIS .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.THIS .close:hover,
+.THIS .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.THIS .clbtn{
+    margin-right:40px;
+    margin-top:-24px;
+}
+.THIS .clbtnin{
+    margin-right:2px;
+}
+.THIS .modal-header {
+    padding: 16px;
+    background-color: #5cb85c;
+    color: white;
+    font-family: cursive;
+}
+.THIS .modal-body {
+    padding: 0px;
+    width: 805px;
+    max-width:100%;
+   	height: 280px;
+    overflow-y: scroll;
+}
+
+.THIS .modal-footer {
+    padding:  16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.THIS .w3-ul{
+    list-style-type:none;  
+    width:92%;
+    margin:0px 4%;
+    border-color:white;
+    background-color:white;
+}
+.THIS .w3-ul li{
+    padding:10px;
+    float:inherit !important;
+}
+.THIS .borderclass{
+   border:groove;
+     border-color:#ccffe6; 
+}
+.THIS .w3-ul li .listItem{
+    width:100%;
+    display:block;
+    float:left;
+   height: 150px;
+}
+
+@media screen and (max-width:768px){
+    .THIS .w3-ul li .listItem .icon{
+        width:100% !important;        
+    }
+}
+
+.THIS .remove{
+    color:red;
+    margin-top: -50px;
+}
+.THIS .quantity{
+    float: left;
+    margin-left: 22PX;
+    color: rgb(92, 184, 92);
+    width: 15%;
+    font-size: 16px;
+    height: 67px;
+    font-style: normal;
+    margin-top: 9px;
+    line-height: 66px;
+    background-color: white;
+    padding: 3px 33px;
+    font-family: cursive;
+    font-weight: bold;
+}
+.THIS .thisItem{
+    float:left;
+    margin-left:30PX;
+    width:30%;
+    height:inherit;
+    margin-top:15px;
+    line-height: 130%;
+}
+.THIS .icon{
+    width:15%;
+    height:32%;
+    float:left;
+    background-color:#FFFFFF;  
+}
+.THIS .closeBtn{
+    float:right;
+    margin-top:25px;
+    width:220px;
+    height:inherit;
+}
+.THIS #imgIcon
+{
+    width: 150px;
+    height: 100%;
+    float: left;
+}
+.THIS#cartForm{
+    margin: auto;
+    margin-top:10%;
+    width: 100%;
+    padding: 10px;
+    display: none;
+}
+.THIS.cartForm .clbtnin{
+    margin-right:40px;
+}
+.THIS .cartremove{
+    margin-top : -65px;
+}
+.THIS#noItem{
+   display:none;
+   margin: auto;
+   margin-top:10%;
+   padding: 5px;
+   font-family: Arial;
+   font-size: 30px;
+   text-transform: uppercase;
+   color: rgb(211, 0, 0);
+   text-align: center;
+}
+.THIS .searchBar{
+   text-align:right;
+    width:100%;
+    float:left;
+    
+}
+.THIS .searchBar input[type=text] {
+    font-family: cursive;
+    margin-right:351px;
+    margin-top:6%;
+}
+
+
+.THIS input[type=text] {
+    width: 47%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    background-image: url('data:image/png;base64,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');
+    background-size: 32px 32px;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 16px 0px 20px 55px;
+}
+
+/* Menu BAR */
+.THIS .menu-wrap {
+    width:100%;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.2);
+    background:#5cb85c;
+    font-family:Comic Sans MS;
+    font-weight:800;
+    float:left;
+    margin: 0px 0 0 0;
+    top: 0;
+    position: fixed;
+}
+.THIS .menu li {
+    list-style:none;
+	background-color: #5cb85c
+}
+.THIS .menu a {
+    transition:all linear 0.15s;
+    color:#ffffff;
+	text-decoration: none;
+	background-color: #5cb85c
+}
+.THIS .menu li:hover > a{
+    color:#256E3F;
+}
+.THIS .menu .current-item > a{
+    color:#5cb85c;
+}
+.THIS .menu .arrow {
+    font-size:10px;
+    line-height:0%;
+}
+
+.THIS .menu > ul > li {
+    float:left;    
+    display:inline-block;
+    position:relative;
+    font-size:16px;
+}
+ 
+.THIS .menu > ul > li > a {
+    padding:20px 40px;
+    display:block;
+    text-shadow:0px 1px 0px rgba(0,0,0,0.4);
+	text-decoration: none;
+}
+ 
+.THIS .menu > ul > li:hover > a{ 
+    background:#5cb85c;
+	text-decoration: none;
+}
+.THIS .menu > ul{
+	background:#5cb85c;
+	text-decoration: none;    
+}
+.THIS .current-item > a {
+    background:#5cb85c;
+	text-decoration: none;
+
+}
+/*----- Bottom Level -----*/
+.THIS .menu li:hover .sub-menu {
+    z-index:1;
+    opacity:1;
+}
+ 
+.THIS .sub-menu {
+    width:160%;
+    padding:5px 0px;
+    position:absolute;
+    top:100%;
+    left:0px;
+    z-index:-1;
+    opacity:0;
+    transition:opacity linear 0.15s;
+    box-shadow:0px 2px 3px rgba(0,0,0,0.2);
+    background:#5cb85c;
+}
+ 
+.THIS .sub-menu li {
+    display:block;
+    font-size:16px;
+    font-family:Comic Sans MS;
+    font-weight:800;
+    width:100%;
+}
+ 
+.THIS .sub-menu li a {
+    padding:12px 30px;
+    display:block;
+}
+ 
+.THIS .sub-menu li a:hover{
+    background:#ffffff;
+} 
+.THIS .sub-menu .current-item a{
+    background:#5cb85c;
+}
+.THIS .heading{  
+    color:#ffffff;
+    font-size:16px;
+    font-family:Comic Sans MS;
+    font-weight:900;
+    background-color:#5cb85c;
+    height:56px;
+    width:200px;
+    padding:4px 100px;
+}
+.THIS .headalign{
+    width:60%;
+    margin-top:15px;
+    padding: 4px 71px;
+    font-size: 150%;
+}
+.THIS.footer{
+    width:100%;
+    float:left;
+    background-color:grey;
+    color:white;
+    opacity:50;
+    padding: 5px 0px 5px 0px;
+    font-size:12px;
+    text-align:center;
+    position: inherit; 
+}
+.THIS.toggle {
+    display: none;
+}
+.THIS .toggle {
+    display: none;
+}
+.THIS#priceTag{
+    display:none;
+    top:300px;
+    bottom:30px;
+    width: 100px;
+    position:fixed;
+    height:50px;
+    width:auto;
+    left:0;   
+}
+
+.THIS .tag{
+    background: #5cb85c;
+    color: #fff;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 30px 0 10px;
+    min-width:120px;
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid #5cb85c;
+    left: 20px;
+    top: 0px;
+    }
+.THIS .tag:before {
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+    }
+.THIS .tag:before {
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #5cb85c;
+    border-top: 15px solid transparent;
+    left: -15px; 
+    }
+
+
+.THIS .tag:after
+{
+  content:"/-";
+  font-size:1.5em;
+  position:absolute; 
+  top:0;
+  right:4px;
+  padding:0 0 15px;
+}
+
+.THIS .tag:hover {
+    background: rgba(221, 226, 5, 0.92);
+    color: #fff;
+     border-radius: 4px;
+    border: 1px solid rgba(221, 226, 5, 0.92);
+    }
+.THIS .tag:hover:before {
+    border-bottom: 15px solid transparent;
+    border-top: 15px solid transparent;;
+    border-right: 15px solid rgba(221, 226, 5, 0.92);
+    }
+.THIS .spl{
+    margin-left: 6.3%;
+}
+.THIS .close-icon {
+  border: 1px solid transparent;
+  background-color: transparent;
+  display: none;
+  vertical-align: middle;
+  outline: 0;
+  cursor: pointer;
+}
+
+.THIS .close-icon:after {
+  content: "X";
+  display: block;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background-color: #FA9595;
+  z-index: 1;
+  right: 35px;
+  top: 0;
+  bottom: 0;
+  margin: 100px 335px 0px 0px;
+  padding: 2px;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  font-weight: normal;
+  font-size: 12px;
+  box-shadow: 0 0 2px #E50F0F;
+  cursor: pointer;
+}

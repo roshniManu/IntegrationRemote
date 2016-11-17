@@ -1,0 +1,121 @@
+<!--
+  * VisualForce Page Add Team Members
+  * Created BY Suyati Inc on 7/15/2016
+  * Summary 
+  * 1.VisualForce Page to search users based on conditions. 
+  * 2. From the search result, multiple users can be added into the team by clicking the add button.
+-->
+<apex:page standardController="Score_Card__Team_Members__c" extensions="Score_Card.AddTeamMembersExtension"  recordSetVar="teams" tabStyle="Score_Card__Team__c">
+    <apex:form > 
+           <apex:variable var="counter" value="{!0}"/>                
+            <apex:pageBlock title="Add New Team Members" id="membAdd" >
+                <apex:pageMessages />
+
+                <!-- pageBlockButtons includes Search button which search for users which meet the given search criteria and Cancel button which returns to Team Page-->
+                <apex:pageBlockButtons location="bottom" >
+                    <apex:commandButton action="{!SearchData}" value="Search"  >   </apex:commandButton>
+                    <apex:commandButton action="{!cancel}" value="Cancel" >   </apex:commandButton>                                      
+                </apex:pageBlockButtons>
+                <apex:pageblockSection title="Conditions" >
+
+                <!--pageBlockTable includes different fields that are required to perform Search Operation -->
+                    <apex:pageBlockTable value="{!SearchListObj}"  var="memb" >
+                        <apex:column headerValue="Field">                                                  
+                          <apex:selectList value="{!memb.Field}" multiselect="false" size="1" >                             
+                                <apex:actionSupport event="onchange" action="{! setvalueField }" rerender="membAdd" status="counterStatus" >                                     
+                                 </apex:actionSupport>                
+                                <apex:selectOptions value="{!Fields}" />                                                                                                                        
+                            </apex:selectList>                                                        
+                        </apex:column>
+                        <apex:column headerValue="Operator">
+                            <apex:selectList value="{!memb.Operator}" multiselect="false" size="1">
+                                <apex:selectOptions value="{!Operators}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Value" id="valuecolumn">                            
+                            <apex:inputText rendered="{!memb.CValueField.RenderText}" value="{!memb.Value}"/>                          
+                            <apex:selectList value="{!memb.Value}" rendered="{!memb.CValueField.RenderPickList }" multiselect="false" size="1">
+                                <apex:selectOptions value="{!memb.CValueField.lstValuesOptions }"/>
+                            </apex:selectList>
+                            <apex:inputCheckbox rendered="{! !memb.CValueField.RenderText && !memb.CValueField.RenderPickList  }" value="{!memb.Value}"  />                           
+                        </apex:column>
+                        <apex:column headerValue="Conditional Operator" rendered="{!memb.Flg}">
+                            <apex:selectList value="{!memb.COperator}" multiselect="false" size="1">
+                            <apex:selectOptions value="{!COperators}"/>
+                            </apex:selectList>
+                        </apex:column>  
+                        <apex:variable var="counter" value="{! counter+1 }"/>                                            
+                    </apex:pageBlockTable> 
+                </apex:pageblockSection> 
+
+                <!-- outputlabel includes links to add new row and to delete a row from the search-->
+                <apex:outputlabel id="links" >
+                    <apex:commandLink value="Add Row" action="{!addRow}" reRender="membAdd"/>                     
+                    <apex:outputText rendered="{! EnableDelete }" > | </apex:outputText> 
+                    <apex:commandLink value=" Delete Row" rendered="{! EnableDelete }" action="{!DeleteRow}" reRender="membAdd,links"/> 
+                <br/>
+                </apex:outputlabel>
+            </apex:pageBlock>
+
+            <!--PageBlock to show the Error Message  -->
+            <apex:pageBlock rendered="{! showErrorMsg  }" >
+                <apex:pageMessage summary="No Relevant Users Found!" severity="warning" strength="3" />               
+            </apex:pageBlock>  
+
+            <!--PageBlock to show the search result and multiple users can be selected -->
+            <apex:pageBlock rendered="{! !showErrorMsg && usersPickList !=null  }" >
+                <apex:pageBlockButtons location="bottom" >
+                    <apex:commandButton action="{!AddData}" value="Add Team Members"/>
+                </apex:pageBlockButtons>
+                <apex:pageblockSection title="Users"  columns="1" >
+                    <apex:pageblockSectionItem >
+                        <apex:pageBlockTable value="{!usersPickList}" var="Ulist">                         
+                            <apex:column >
+                                <apex:facet name="header">                                     
+                                     <input type="checkbox" id="SelectAllCB" onChange=" SelectAllCheckBoxes(this)" name="selectAll" value="{!selectAll }" />                                                                                          
+                                </apex:facet>
+                                <apex:inputCheckbox styleClass="SelectAllCB" onchange="checkingOne(this)" value=" {! Ulist.PickList } " />                                                                                       
+                            </apex:column>
+                            <apex:column headerValue="First Name">
+                                <apex:outputfield value="{!Ulist.RelatedUser.firstname}"/>
+                            </apex:column>
+                            <apex:column headerValue="Last Name">
+                                <apex:outputfield value="{!Ulist.RelatedUser.lastname}"/>                                
+                            </apex:column>
+                            <apex:column headerValue="Email">
+                                <apex:outputfield value="{!Ulist.RelatedUser.email}"/>
+                            </apex:column>
+                        </apex:pageBlockTable> 
+                    </apex:pageblockSectionItem>   
+                </apex:pageblockSection>
+            </apex:pageBlock>          
+    </apex:form>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <script>
+
+    <!-- Checks whether if all the users are selected, the checkbox will be checked, else if any one user is not selected, then Checkbox will be unChecked-->
+        function SelectAllCheckBoxes(elem){
+           if($('#SelectAllCB').prop('checked') == true){   
+               $('.SelectAllCB').prop('checked','Checked') ;
+           }
+           else{
+                 $('.SelectAllCB').attr('checked', false);
+           }         
+        }
+        function checkingOne(elem){
+            var flag = true;
+            $('.SelectAllCB').each(function(i, obj) {
+               if( obj.checked == false ){
+                   flag = false;
+               } 
+            });
+            if(flag == false){
+                 $('#SelectAllCB').prop('checked',false) ;
+            }
+            else{
+                 $('#SelectAllCB').prop('checked','Checked') ;
+            }
+        }
+      
+    </script>
+</apex:page>

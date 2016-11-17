@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>To create custom setting for LeaderBoard and BroadCast Message</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>BroadCast_Message_Background_Color__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Background Color for BroadCast Message</description>
+        <externalId>false</externalId>
+        <label>BroadCast Message Background Color</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BroadCast_Message_Font_Color__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Font Color for BroadCast Message</description>
+        <externalId>false</externalId>
+        <label>BroadCast Message Font Color</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BroadCast_Message_Font_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Font Name for BroadCast Messgae</description>
+        <externalId>false</externalId>
+        <label>BroadCast Message Font Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LeaderBoard_Common_Url__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Common Video URL for LeaderBoard</description>
+        <externalId>false</externalId>
+        <label>LeaderBoard Common Url</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <label>General Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

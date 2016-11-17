@@ -1,0 +1,33 @@
+<apex:component >
+	<apex:includeScript value="{!URLFOR($Resource.jq, 'js/jquery-1.6.2.min')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.jq, 'js/jquery-ui-1.8.16.custom.min')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.jq, 'css/ui-lightness/jquery-ui-1.9.1.custom.min')}"/>
+
+	
+	<div id="dialog">
+		<table border="0" width="98%" cellpadding="7">
+		<tr>
+		<td valign="top">
+		<div style="font-size:1.6em;">
+			<strong>Dialog Box</strong>
+		</div>
+		<div> </div>
+		<div style="font-size:1.3em;">This dialog box is created using a Jquery visualforce component!</div>
+		</td>
+		</tr>
+		</table>
+	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#dialog").dialog(
+			{
+				modal:true,
+				closeable:false,
+				resizable:false,
+				draggable:true,
+				overlay:{opacity:5.0,background:"red"}
+			});
+		});		
+	</script>
+</apex:component>

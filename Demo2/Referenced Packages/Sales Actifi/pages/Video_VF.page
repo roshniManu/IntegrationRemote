@@ -1,0 +1,33 @@
+<!--
+    * @VisualForce Page Video_VF
+    * @Author Suyati Tech on 09/08/2016
+    * @Description This page is used to play videos for score card lightning app
+-->
+<apex:page controller="Score_Card.PlayerPageController" showHeader="false" sidebar="false">
+   <apex:includeScript value="https://jwpsrv.com/library/nW0XeJzyEeOssyIACi0I_Q.js" />
+    <div id="myPlayer"></div>   
+    <script type="text/javascript">         
+        jwplayer("myPlayer").setup({
+            playlist: [{
+                image: "{! JSENCODE(imgUrl) }",
+                sources: [
+                    { 
+                        file: "{!JSENCODE(selectedVideoStream)}"
+                    }
+                    ,
+                    {
+                        file: "{!JSENCODE(selectedVideoStream)}"
+                    }
+                ]
+            }],
+            aspectratio: "16:9",
+            width: '100%',   
+            height: '100%',         
+            primary: 'flash',
+            autostart: true,
+            repeat: true,
+            controls: false
+        });
+
+    </script>
+</apex:page>

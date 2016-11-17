@@ -1,0 +1,6 @@
+<apex:page >
+  
+  <apex:form >
+      <c:jqTest ></c:jqTest>
+  </apex:form>
+</apex:page>

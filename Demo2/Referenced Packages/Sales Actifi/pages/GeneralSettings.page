@@ -1,0 +1,71 @@
+<apex:page title="Score Card General Settings" standardController="Score_Card__General_Settings__c" tabStyle="General_Settings__tab" extensions="Score_Card.GeneralSettingsController" recordSetVar="CSObj">
+   
+    <apex:form id="mainForm" >
+        <apex:pageBlock title=" Score Card General Settings">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Edit" rendered="{! !IsEditable }" action="{!EditPage}" reRender="mainForm"  />
+                <apex:commandButton styleClass="saveStyle" value="Save" rendered="{! IsEditable }"   action="{!SaveSettings}" reRender="mainForm" />
+                <apex:commandButton styleClass="cancelStyle" value="Cancel" rendered="{! IsEditable }" onclick="window.location.reload();"   reRender="mainForm" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection rendered="{! !IsEditable}">
+                <apex:pageBlockSectionItem >
+                   Common LeaderBoard Video URL                   
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >                  
+                   {!DefaultGeneralSettings.Score_Card__LeaderBoard_Common_Url__c}
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                   BroadCast Message Background Color                 
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >                  
+                   {!DefaultGeneralSettings.Score_Card__BroadCast_Message_Background_Color__c}
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                   BroadCast Message Font Name                
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >                  
+                   {!DefaultGeneralSettings.Score_Card__BroadCast_Message_Font_Name__c}
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                   BroadCast Message Font Color
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >                  
+                   {!DefaultGeneralSettings.Score_Card__BroadCast_Message_Font_Color__c}
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection rendered="{! IsEditable}">
+                <apex:pageBlockSectionItem >
+                   Common LeaderBoard Video URL                   
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >                  
+                   <apex:inputField styleClass="outputStyle" value="{!DefaultGeneralSettings.Score_Card__LeaderBoard_Common_Url__c}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                   BroadCast Message Background Color                 
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >                  
+                  <apex:selectList size="1"  styleClass="outputStyle" value="{!DefaultGeneralSettings.Score_Card__BroadCast_Message_Background_Color__c}" multiselect="False">
+                        <apex:selectOptions value="{!colors}"/>
+                  </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                   BroadCast Message Font Name                
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >                  
+                    <apex:selectList size="1"  styleClass="outputStyle" value="{!DefaultGeneralSettings.Score_Card__BroadCast_Message_Font_Name__c}" multiselect="False">
+                         <apex:selectOptions value="{!fonts}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                   BroadCast Message Font Color
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >                  
+                    <apex:selectList size="1"  styleClass="outputStyle" value="{! DefaultGeneralSettings.BroadCast_Message_Font_Color__c}" multiselect="False">
+                            <apex:selectOptions value="{!colors}"/>
+                        </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>                   
+    </apex:form>
+    
+</apex:page>
